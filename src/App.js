@@ -1,6 +1,6 @@
 import './App.css';
-import { useReducer, useEffect, useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export function Detail(props) {
   const location = useLocation();
