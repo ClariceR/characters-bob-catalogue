@@ -1,3 +1,10 @@
+# App to show characters and check details
+
+This simple gets all characters from Bobs Burgers Api using graphQl and displays all characters in a grid.
+
+By clicking on the name of the character, the details about that character are displayed in a '/detail' endpoint.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
