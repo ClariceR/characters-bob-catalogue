@@ -1,20 +1,43 @@
 import './App.css';
 import { useReducer, useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
-export function Item() {
+export function Detail(props) {
+  const location = useLocation();
+  console.log('props: ', props);
+  console.log('location: ', location);
+
+  const data = location.state?.data;
   return (
     <div>
-      <h1>Item detail</h1>
+      <div>
+        <h1>{data.name}</h1>
+        <img src={data.image} alt={data.name} height="150px" />
+        <p>{data.firstEpisode ? `First episode: ${data.firstEpisode}` : ""}</p>
+        <p>{data.age ? `Age: ${data.age}` : ""}</p>
+        <p>{data.occupation ? `Occupation: ${data.occupation}` : ""}</p>
+        <p>{data.voicedBy ? `Voiced by: ${data.voicedBy}` : ""}</p>
+      </div>
       <Link to="/">back to home</Link>
     </div>
   );
 }
 
-function Character({ name, image }) {
+function Character({ id, name, image, age, firstEpisode, occupation, voicedBy }) {
+  const [data, setData] = useState({
+    id: id,
+    name: name,
+    image: image,
+    age: age,
+    firstEpisode: firstEpisode,
+    occupation: occupation,
+    voicedBy: voicedBy,
+  });
   return (
     <>
-      <h2>{name}</h2>
+      <Link to="detail" state={{ data: data }}>
+        <h2>{name}</h2>
+      </Link>
       <img src={image} alt={name} height="150px" />
     </>
   );
@@ -66,7 +89,15 @@ export function App() {
       <div>
         {data.data.characters.map((character) => (
           <div className="characters-bkg" key={character.id}>
-            <Character name={character.name} image={character.image} />
+            <Character
+              id={character.id}
+              name={character.name}
+              image={character.image}
+              age={character.age}
+              firstEpisode={character.firstEpisode}
+              occupation={character.occupation}
+              voicedBy={character.voicedBy}
+            />
           </div>
         ))}
       </div>
