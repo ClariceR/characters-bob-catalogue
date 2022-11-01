@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+
+function Item() {
+  return (
+    <div>
+      <h1>Item detail</h1>
+    </div>
+  )
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Homepage</h1>
+      <h3>This is going to be the home page</h3>
+      <p>The list of items are going to show here:</p>
+      <p>Api call and display items</p>
+      <ul>
+        <li>link to details</li>
+      </ul>
+
     </div>
   );
 }
