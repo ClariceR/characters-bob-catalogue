@@ -1,14 +1,16 @@
 import './App.css';
+import {Link, Outlet} from 'react-router-dom'
 
-function Item() {
+export function Item() {
   return (
     <div>
       <h1>Item detail</h1>
+      <Link to="/">back to home</Link>
     </div>
-  )
+  );
 }
 
-function App() {
+export function App() {
   return (
     <div className="App">
       <h1>Homepage</h1>
@@ -16,11 +18,11 @@ function App() {
       <p>The list of items are going to show here:</p>
       <p>Api call and display items</p>
       <ul>
-        <li>link to details</li>
+        <li>
+          <Link to='/item'>link to details</Link>
+        </li>
       </ul>
-
     </div>
   );
 }
 
-export default App;
