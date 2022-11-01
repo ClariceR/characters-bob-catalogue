@@ -9,16 +9,18 @@ export function Detail(props) {
 
   const data = location.state?.data;
   return (
-    <div>
+    <div className="App">
       <div>
         <h1>{data.name}</h1>
         <img src={data.image} alt={data.name} height="150px" />
-        <p>{data.firstEpisode ? `First episode: ${data.firstEpisode}` : ""}</p>
-        <p>{data.age ? `Age: ${data.age}` : ""}</p>
-        <p>{data.occupation ? `Occupation: ${data.occupation}` : ""}</p>
-        <p>{data.voicedBy ? `Voiced by: ${data.voicedBy}` : ""}</p>
+        <p>{data.firstEpisode ? `First episode: ${data.firstEpisode}` : ''}</p>
+        <p>{data.age ? `Age: ${data.age}` : ''}</p>
+        <p>{data.occupation ? `Occupation: ${data.occupation}` : ''}</p>
+        <p>{data.voicedBy ? `Voiced by: ${data.voicedBy}` : ''}</p>
       </div>
-      <Link to="/">back to home</Link>
+      <Link to="/" className="characters-bkg">
+        back to home
+      </Link>
     </div>
   );
 }
@@ -36,9 +38,9 @@ function Character({ id, name, image, age, firstEpisode, occupation, voicedBy })
   return (
     <>
       <Link to="detail" state={{ data: data }}>
-        <h2>{name}</h2>
+        <h3>{name}</h3>
       </Link>
-      <img src={image} alt={name} height="150px" />
+      <img src={image} alt={name} height="100px" />
     </>
   );
 }
@@ -86,7 +88,7 @@ export function App() {
 
   return (
     <div className="App">
-      <div>
+      <div className='grid'>
         {data.data.characters.map((character) => (
           <div className="characters-bkg" key={character.id}>
             <Character
